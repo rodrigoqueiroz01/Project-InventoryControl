@@ -1,6 +1,5 @@
 package inventory.control.model;
 
-import inventory.control.model.enums.AddressType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -22,9 +21,12 @@ public class ConveyorModel {
     private UUID codConveyor;
 
     private String conveyor;
+    private String address;
+    private Integer number;
+    private String district;
 
-    @Enumerated(EnumType.STRING)
-    private AddressType addressType;
+    @Column(name = "zip_code")
+    private String zipCode;
 
     private String cnpj;
     private String subscription;
