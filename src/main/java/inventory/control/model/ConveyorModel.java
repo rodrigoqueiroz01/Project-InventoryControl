@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.util.List;
 import java.util.UUID;
@@ -19,12 +20,15 @@ public class ConveyorModel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID codConveyor;
+
     private String conveyor;
     private String address;
     private Integer number;
     private String district;
+
     @Column(name = "zip_code")
     private String zipCode;
+
     private String cnpj;
     private String subscription;
     private String contact;

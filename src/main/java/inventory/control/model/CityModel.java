@@ -19,8 +19,10 @@ public class CityModel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID codCity;
+
     @Column(name = "city_name")
     private String cityName;
+
     private String uf;
 
 }

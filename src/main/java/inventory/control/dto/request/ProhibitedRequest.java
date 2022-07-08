@@ -14,10 +14,10 @@ import java.util.UUID;
 public class ProhibitedRequest {
 
     @NotNull(message = "A data solicitação do pedido não foi informada.")
-    private LocalDate requestDate;
+    private LocalDateTime requestDate;
 
     @NotNull(message = "A data de entrada do pedido não informada.")
-    private LocalDate entryDate;
+    private LocalDateTime entryDate;
 
     @NotNull(message = "O valor total do pedido não foi informado.")
     private Double total;

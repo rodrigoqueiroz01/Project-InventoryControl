@@ -19,6 +19,7 @@ public class StoreModel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID codStore;
+
     private String name;
     private String address;
     private Integer number;

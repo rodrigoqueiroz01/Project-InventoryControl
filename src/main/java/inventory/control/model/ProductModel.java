@@ -19,9 +19,11 @@ public class ProductModel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID codProduct;
+
     private String description;
     private Double weight;
     private Boolean controlled;
+
     @Column(name = "minimum_amount")
     private Integer minimumAmount;
 

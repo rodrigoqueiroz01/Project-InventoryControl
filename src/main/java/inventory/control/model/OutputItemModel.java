@@ -18,6 +18,7 @@ public class OutputItemModel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID codOutputItem;
+
     private String batch;
     private Integer amount;
     private Double value;

@@ -19,6 +19,7 @@ public class ProviderModel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID codProvider;
+
     private String provider;
     private String address;
     private Integer number;

@@ -19,6 +19,7 @@ public class ExitModel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID codExit;
+
     private Double total;
     private Double shipping;
     private Double tax;

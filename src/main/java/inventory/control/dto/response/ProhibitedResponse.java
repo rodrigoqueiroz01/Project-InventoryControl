@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
@@ -15,8 +16,8 @@ import java.util.UUID;
 public class ProhibitedResponse {
 
     private UUID codProhibited;
-    private LocalDate requestDate;
-    private LocalDate entryDate;
+    private LocalDateTime requestDate;
+    private LocalDateTime entryDate;
     private Double total;
     private Double shipping;
     private Integer invoiceNumber;

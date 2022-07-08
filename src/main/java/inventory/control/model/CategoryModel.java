@@ -19,6 +19,7 @@ public class CategoryModel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID codCategory;
+
     private String name;
 
 }

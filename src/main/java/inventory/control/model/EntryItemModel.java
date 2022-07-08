@@ -18,6 +18,7 @@ public class EntryItemModel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID codEntryItem;
+
     private String batch;
     private Integer amount;
     private Double value;
