@@ -2,7 +2,7 @@ package inventory.control.http.controller;
 
 import inventory.control.http.dto.request.CityRequest;
 import inventory.control.http.dto.response.CityResponse;
-import inventory.control.http.dto.mapper.CityMapper;
+import inventory.control.http.mapper.CityMapper;
 import inventory.control.service.CityService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;

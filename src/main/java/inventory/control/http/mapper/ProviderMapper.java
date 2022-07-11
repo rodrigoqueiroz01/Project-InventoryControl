@@ -1,4 +1,4 @@
-package inventory.control.http.dto.mapper;
+package inventory.control.http.mapper;
 
 import inventory.control.http.dto.request.ProviderRequest;
 import inventory.control.http.dto.response.ProviderResponse;

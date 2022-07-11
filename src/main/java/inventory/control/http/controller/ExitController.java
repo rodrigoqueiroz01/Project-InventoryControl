@@ -2,7 +2,7 @@ package inventory.control.http.controller;
 
 import inventory.control.http.dto.request.ExitRequest;
 import inventory.control.http.dto.response.ExitResponse;
-import inventory.control.http.dto.mapper.ExitMapper;
+import inventory.control.http.mapper.ExitMapper;
 import inventory.control.service.ExitService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;

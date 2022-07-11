@@ -2,7 +2,7 @@ package inventory.control.http.controller;
 
 import inventory.control.http.dto.request.CategoryRequest;
 import inventory.control.http.dto.response.CategoryResponse;
-import inventory.control.http.dto.mapper.CategoryMapper;
+import inventory.control.http.mapper.CategoryMapper;
 import inventory.control.service.CategoryService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;

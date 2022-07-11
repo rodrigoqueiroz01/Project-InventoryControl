@@ -2,7 +2,7 @@ package inventory.control.http.controller;
 
 import inventory.control.http.dto.request.OutpuItemRequest;
 import inventory.control.http.dto.response.OutputItemResponse;
-import inventory.control.http.dto.mapper.OutputItemMapper;
+import inventory.control.http.mapper.OutputItemMapper;
 import inventory.control.service.OutputItemService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;

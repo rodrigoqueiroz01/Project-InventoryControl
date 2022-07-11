@@ -2,7 +2,7 @@ package inventory.control.http.controller;
 
 import inventory.control.http.dto.request.ConveyorRequest;
 import inventory.control.http.dto.response.ConveyorResponse;
-import inventory.control.http.dto.mapper.ConveyorMapper;
+import inventory.control.http.mapper.ConveyorMapper;
 import inventory.control.service.ConveyorService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;

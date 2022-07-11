@@ -2,7 +2,7 @@ package inventory.control.http.controller;
 
 import inventory.control.http.dto.request.ProhibitedRequest;
 import inventory.control.http.dto.response.ProhibitedResponse;
-import inventory.control.http.dto.mapper.ProhibitedMapper;
+import inventory.control.http.mapper.ProhibitedMapper;
 import inventory.control.service.ProhibitedService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
