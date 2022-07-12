@@ -20,7 +20,7 @@ public class CityService {
 
     public CityModel findById(UUID uuid) {
         return cityRepository.findById(uuid)
-                .orElseThrow(() -> new NoResultException("Cidade não encontrada!"));
+                .orElseThrow(() -> new NoResultException("Cidade inválida."));
     }
 
     public List<CityModel> findAll() {
@@ -29,7 +29,7 @@ public class CityService {
 
     public CityModel update(CityModel cityModel, UUID uuid) {
         cityRepository.findById(uuid)
-                .orElseThrow(() -> new NoResultException("Cidade não encontrada!"));
+                .orElseThrow(() -> new NoResultException("Cidade inválida."));
         cityModel.setCodCity(uuid);
         cityRepository.save(cityModel);
         return cityModel;
@@ -37,7 +37,7 @@ public class CityService {
 
     public UUID delete(UUID uuid) {
         CityModel city = cityRepository.findById(uuid)
-                .orElseThrow(() -> new NoResultException("Cidade não encontrada!"));
+                .orElseThrow(() -> new NoResultException("Cidade inválida."));
         cityRepository.delete(city);
         return uuid;
     }

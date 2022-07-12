@@ -20,7 +20,7 @@ public class CategoryService {
 
     public CategoryModel findById(UUID uuid) {
         return categoryRepository.findById(uuid)
-                .orElseThrow(() -> new NoResultException("Categoria não encontrada!"));
+                .orElseThrow(() -> new NoResultException("Categoria inválida."));
     }
 
     public List<CategoryModel> findAll() {
@@ -29,7 +29,7 @@ public class CategoryService {
 
     public CategoryModel update(CategoryModel categoryModel, UUID uuid) {
         categoryRepository.findById(uuid)
-                .orElseThrow(() -> new NoResultException("Categoria não encontrada!"));
+                .orElseThrow(() -> new NoResultException("Categoria inválida."));
         categoryModel.setCodCategory(uuid);
         categoryRepository.save(categoryModel);
         return categoryModel;
@@ -37,7 +37,7 @@ public class CategoryService {
 
     public UUID delete(UUID uuid) {
         CategoryModel category = categoryRepository.findById(uuid)
-                .orElseThrow(() -> new NoResultException("Categoria não encontrada!"));
+                .orElseThrow(() -> new NoResultException("Categoria inválida."));
         categoryRepository.delete(category);
         return uuid;
     }

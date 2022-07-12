@@ -20,7 +20,7 @@ public class StoreService {
 
     public StoreModel findByCod(UUID uuid) {
         return storeRepository.findById(uuid)
-                .orElseThrow(() -> new NoResultException("Loja não encontrada!"));
+                .orElseThrow(() -> new NoResultException("Loja inválida."));
     }
 
     public List<StoreModel> findAll() {
@@ -29,7 +29,7 @@ public class StoreService {
 
     public StoreModel update(StoreModel storeModel, UUID uuid) {
         storeRepository.findById(uuid)
-                .orElseThrow(() -> new NoResultException("Loja não encontrada!"));
+                .orElseThrow(() -> new NoResultException("Loja inválida."));
         storeModel.setCodStore(uuid);
         storeRepository.save(storeModel);
         return storeModel;
@@ -37,7 +37,7 @@ public class StoreService {
 
     public UUID delete(UUID id) {
         StoreModel store = storeRepository.findById(id)
-                .orElseThrow(() -> new NoResultException("Loja não encontrada!"));
+                .orElseThrow(() -> new NoResultException("Loja inválida."));
         storeRepository.delete(store);
         return id;
     }

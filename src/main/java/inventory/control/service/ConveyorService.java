@@ -20,7 +20,7 @@ public class ConveyorService {
 
     public ConveyorModel findById(UUID uuid) {
         return conveyorRepository.findById(uuid)
-                .orElseThrow(() -> new NoResultException("Transportadora não encontrada!"));
+                .orElseThrow(() -> new NoResultException("Transportadora inválida."));
     }
 
     public List<ConveyorModel> findAll() {
@@ -29,7 +29,7 @@ public class ConveyorService {
 
     public ConveyorModel update(ConveyorModel conveyorModel, UUID uuid) {
         conveyorRepository.findById(uuid)
-                .orElseThrow(() -> new NoResultException("Transportadora não encontrada!"));
+                .orElseThrow(() -> new NoResultException("Transportadora inválida."));
         conveyorModel.setCodConveyor(uuid);
         conveyorRepository.save(conveyorModel);
         return conveyorModel;
@@ -37,7 +37,7 @@ public class ConveyorService {
 
     public UUID delete(UUID uuid) {
         ConveyorModel conveyor = conveyorRepository.findById(uuid)
-                .orElseThrow(() -> new NoResultException("Transportadora não encontrada!"));
+                .orElseThrow(() -> new NoResultException("Transportadora inválida."));
         conveyorRepository.delete(conveyor);
         return uuid;
     }

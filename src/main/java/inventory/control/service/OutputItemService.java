@@ -20,7 +20,7 @@ public class OutputItemService {
 
     public OutputItemModel findById(UUID uuid) {
         return outputItemRepository.findById(uuid)
-                .orElseThrow(() -> new NoResultException("Item não encontrado!"));
+                .orElseThrow(() -> new NoResultException("Item de saída inválido."));
     }
 
     public List<OutputItemModel> findAll() {
@@ -29,7 +29,7 @@ public class OutputItemService {
 
     public OutputItemModel update(OutputItemModel outputItemModel, UUID uuid) {
         outputItemRepository.findById(uuid)
-                .orElseThrow(() -> new NoResultException("Item não encontrado!"));
+                .orElseThrow(() -> new NoResultException("Item de saída inválido."));
         outputItemModel.setCodOutputItem(uuid);
         outputItemRepository.save(outputItemModel);
         return outputItemModel;
@@ -37,7 +37,7 @@ public class OutputItemService {
 
     public UUID delete(UUID uuid) {
         OutputItemModel outputItem = outputItemRepository.findById(uuid)
-                .orElseThrow(() -> new NoResultException("Item não encontrado!"));
+                .orElseThrow(() -> new NoResultException("Item de saída inválido."));
         outputItemRepository.delete(outputItem);
         return uuid;
     }

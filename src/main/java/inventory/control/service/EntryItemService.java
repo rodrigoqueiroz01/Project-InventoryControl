@@ -20,7 +20,7 @@ public class EntryItemService {
 
     public EntryItemModel findById(UUID uuid) {
         return entryItemRepository.findById(uuid)
-                .orElseThrow(() -> new NoResultException("Item não encontrado!"));
+                .orElseThrow(() -> new NoResultException("Item de entrada inválido."));
     }
 
     public List<EntryItemModel> findAll() {
@@ -29,7 +29,7 @@ public class EntryItemService {
 
     public EntryItemModel update(EntryItemModel entryItemModel, UUID uuid) {
         entryItemRepository.findById(uuid)
-                .orElseThrow(() -> new NoResultException("Item não encontrado!"));
+                .orElseThrow(() -> new NoResultException("Item de entrada inválido."));
         entryItemModel.setCodEntryItem(uuid);
         entryItemRepository.save(entryItemModel);
         return entryItemModel;
@@ -37,7 +37,7 @@ public class EntryItemService {
 
     public UUID delete(UUID uuid) {
         EntryItemModel entryItem = entryItemRepository.findById(uuid)
-                .orElseThrow(() -> new NoResultException("Item não encontrado!"));
+                .orElseThrow(() -> new NoResultException("Item de entrada inválido."));
         entryItemRepository.delete(entryItem);
         return uuid;
     }

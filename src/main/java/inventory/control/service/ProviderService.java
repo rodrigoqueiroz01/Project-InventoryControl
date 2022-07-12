@@ -20,7 +20,7 @@ public class ProviderService {
 
     public ProviderModel findById(UUID uuid) {
         return providerRepository.findById(uuid)
-                .orElseThrow(() -> new NoResultException("Fornecedor não encontrado!"));
+                .orElseThrow(() -> new NoResultException("Fornecedor inválido."));
     }
 
     public List<ProviderModel> findAll() {
@@ -29,7 +29,7 @@ public class ProviderService {
 
     public ProviderModel update(ProviderModel providerModel, UUID uuid) {
         providerRepository.findById(uuid)
-                .orElseThrow(() -> new NoResultException("Fornecedor não encontrado!"));
+                .orElseThrow(() -> new NoResultException("Fornecedor inválido."));
         providerModel.setCodProvider(uuid);
         providerRepository.save(providerModel);
         return providerModel;
@@ -37,7 +37,7 @@ public class ProviderService {
 
     public UUID delete(UUID uuid) {
         ProviderModel provider = providerRepository.findById(uuid)
-                .orElseThrow(() -> new NoResultException("Fornecedor não encontrado!"));
+                .orElseThrow(() -> new NoResultException("Fornecedor inválido."));
         providerRepository.delete(provider);
         return uuid;
     }

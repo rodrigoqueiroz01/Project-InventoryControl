@@ -20,7 +20,7 @@ public class ProductService {
 
     public ProductModel findById(UUID uuid) {
         return productRepository.findById(uuid)
-                .orElseThrow(() -> new NoResultException("Produto não encontrado!"));
+                .orElseThrow(() -> new NoResultException("Produto inválido."));
     }
 
     public List<ProductModel> findAll() {
@@ -29,7 +29,7 @@ public class ProductService {
 
     public ProductModel update(ProductModel productModel, UUID uuid) {
         productRepository.findById(uuid)
-                .orElseThrow(() -> new NoResultException("Produto não encontrado!"));
+                .orElseThrow(() -> new NoResultException("Produto inválido."));
         productModel.setCodProduct(uuid);
         productRepository.save(productModel);
         return productModel;
@@ -37,7 +37,7 @@ public class ProductService {
 
     public UUID delete(UUID uuid) {
         ProductModel product = productRepository.findById(uuid)
-                .orElseThrow(() -> new NoResultException("Produto não encontrado!"));
+                .orElseThrow(() -> new NoResultException("Produto inválido."));
         productRepository.delete(product);
         return uuid;
     }

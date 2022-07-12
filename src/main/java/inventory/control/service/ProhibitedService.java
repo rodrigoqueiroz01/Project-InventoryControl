@@ -20,7 +20,7 @@ public class ProhibitedService {
 
     public ProhibitedModel findById(UUID uuid) {
         return prohibitedRepository.findById(uuid)
-                .orElseThrow(() -> new NoResultException("Entrada não encontrada!"));
+                .orElseThrow(() -> new NoResultException("Entrada inválida."));
     }
 
     public List<ProhibitedModel> findAll() {
@@ -29,7 +29,7 @@ public class ProhibitedService {
 
     public ProhibitedModel update(ProhibitedModel prohibitedModel, UUID uuid) {
         prohibitedRepository.findById(uuid)
-                .orElseThrow(() -> new NoResultException("Entrada não encontrada!"));
+                .orElseThrow(() -> new NoResultException("Entrada inválida."));
         prohibitedModel.setCodProhibited(uuid);
         prohibitedRepository.save(prohibitedModel);
         return prohibitedModel;
@@ -37,7 +37,7 @@ public class ProhibitedService {
 
     public UUID delete(UUID uuid) {
         ProhibitedModel prohibited = prohibitedRepository.findById(uuid)
-                .orElseThrow(() -> new NoResultException("Entrada não encontrada!"));
+                .orElseThrow(() -> new NoResultException("Entrada inválida."));
         prohibitedRepository.delete(prohibited);
         return uuid;
     }

@@ -21,7 +21,7 @@ public class ExitService {
 
     public ExitModel findById(UUID uuid) {
         return exitRepository.findById(uuid)
-                .orElseThrow(() -> new NoResultException("Saída não encontrada!"));
+                .orElseThrow(() -> new NoResultException("Saída inválida."));
     }
 
     public List<ExitModel> findAll() {
@@ -30,7 +30,7 @@ public class ExitService {
 
     public ExitModel update(ExitModel exitModel, UUID uuid) {
         exitRepository.findById(uuid)
-                .orElseThrow(() -> new NoResultException("Saída não encontrada!"));
+                .orElseThrow(() -> new NoResultException("Saída inválida."));
         exitModel.setCodExit(uuid);
         exitRepository.save(exitModel);
         return exitModel;
@@ -38,7 +38,7 @@ public class ExitService {
 
     public UUID delete(UUID uuid) {
         ExitModel exit = exitRepository.findById(uuid)
-                .orElseThrow(() -> new NoResultException("Saída não encontrada!"));
+                .orElseThrow(() -> new NoResultException("Saída inválida."));
         exitRepository.delete(exit);
         return uuid;
     }
