@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.List;
 import java.util.UUID;
 
@@ -14,23 +16,32 @@ import java.util.UUID;
 @NoArgsConstructor
 @Entity
 @Table(name = "conveyor", schema = "public")
-public class ConveyorModel {
+public class ConveyorModel implements Serializable {
+
+    @Serial
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID codConveyor;
 
     private String conveyor;
+
     private String address;
+
     private Integer number;
+
     private String district;
 
     @Column(name = "zip_code")
     private String zipCode;
 
     private String cnpj;
+
     private String subscription;
+
     private String contact;
+
     private String telephone;
 
     @ManyToMany

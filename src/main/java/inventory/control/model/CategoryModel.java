@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.UUID;
 
 @Builder
@@ -13,7 +15,10 @@ import java.util.UUID;
 @Data
 @Entity
 @Table(name = "category", schema = "public")
-public class CategoryModel {
+public class CategoryModel implements Serializable {
+
+    @Serial
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

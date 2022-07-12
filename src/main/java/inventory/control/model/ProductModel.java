@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.List;
 import java.util.UUID;
 
@@ -14,14 +16,19 @@ import java.util.UUID;
 @NoArgsConstructor
 @Entity
 @Table(name = "product", schema = "public")
-public class ProductModel {
+public class ProductModel implements Serializable {
+
+    @Serial
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID codProduct;
 
     private String description;
+
     private Double weight;
+
     private Boolean controlled;
 
     @Column(name = "minimum_amount")

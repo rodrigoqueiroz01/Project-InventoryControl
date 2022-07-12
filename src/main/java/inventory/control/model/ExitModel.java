@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.List;
 import java.util.UUID;
 
@@ -14,14 +16,19 @@ import java.util.UUID;
 @NoArgsConstructor
 @Entity
 @Table(name = "exit", schema = "public")
-public class ExitModel {
+public class ExitModel implements Serializable {
+
+    @Serial
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID codExit;
 
     private Double total;
+
     private Double shipping;
+
     private Double tax;
 
     @ManyToMany
