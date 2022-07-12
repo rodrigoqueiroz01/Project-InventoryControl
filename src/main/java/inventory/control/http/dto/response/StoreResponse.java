@@ -15,12 +15,19 @@ import java.util.UUID;
 public class StoreResponse {
 
     private UUID codStore;
+
     private String name;
+
     private String address;
+
     private Integer number;
+
     private String district;
+
     private String telephone;
+
     private String subscription;
+
     private String cnpj;
 
     private List<CityResponse> cityResponseList;

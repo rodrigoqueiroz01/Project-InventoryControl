@@ -14,7 +14,9 @@ import java.util.UUID;
 public class CityResponse {
 
     private UUID codCity;
+
     private String cityName;
+
     private String uf;
 
 }

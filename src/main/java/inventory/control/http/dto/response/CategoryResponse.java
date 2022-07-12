@@ -13,6 +13,7 @@ import java.util.UUID;
 public class CategoryResponse {
 
     private UUID codCategory;
+
     private String name;
 
 }

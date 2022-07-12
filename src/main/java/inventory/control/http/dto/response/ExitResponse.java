@@ -14,11 +14,15 @@ import java.util.UUID;
 public class ExitResponse {
 
     private UUID codExit;
+
     private Double total;
+
     private Double shipping;
+
     private Double tax;
 
     private List<ConveyorResponse> conveyorResponseList;
+
     private StoreResponse storeResponse;
 
 }

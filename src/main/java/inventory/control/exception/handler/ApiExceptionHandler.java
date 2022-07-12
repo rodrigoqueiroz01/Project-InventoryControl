@@ -1,6 +1,5 @@
 package inventory.control.exception.handler;
 
-import inventory.control.config.ApiError;
 import inventory.control.exception.*;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpHeaders;

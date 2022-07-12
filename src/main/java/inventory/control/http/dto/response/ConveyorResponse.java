@@ -15,14 +15,23 @@ import java.util.UUID;
 public class ConveyorResponse {
 
     private UUID codConveyor;
+
     private String conveyor;
+
     private String address;
+
     private Integer number;
+
     private String district;
+
     private String zipCode;
+
     private String cnpj;
+
     private String subscription;
+
     private String contact;
+
     private String telephone;
 
     private List<CityResponse> cityResponseList;

@@ -15,14 +15,23 @@ import java.util.UUID;
 public class ProviderResponse {
 
     private UUID codProvider;
+
     private String provider;
+
     private String address;
+
     private Integer number;
+
     private String district;
+
     private String cep;
+
     private String contact;
+
     private String cnpj;
+
     private String subscription;
+
     private String telephone;
 
     private List<CityResponse> cityResponseList;

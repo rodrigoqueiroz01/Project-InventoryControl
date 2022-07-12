@@ -15,12 +15,17 @@ import java.util.UUID;
 public class ProductResponse {
 
     private UUID codProduct;
+
     private String description;
+
     private Double weight;
+
     private Boolean controlled;
+
     private Integer minimumAmount;
 
     private List<ProviderResponse> providerResponseList;
+
     private String nameCategory;
 
 }

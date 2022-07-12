@@ -1,4 +1,4 @@
-package inventory.control.config;
+package inventory.control.exception.handler;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;

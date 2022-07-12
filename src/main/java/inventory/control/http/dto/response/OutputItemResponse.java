@@ -13,11 +13,15 @@ import java.util.UUID;
 public class OutputItemResponse {
 
     private UUID codOutputItem;
+
     private String batch;
+
     private Integer amount;
+
     private Double value;
 
     private ProductResponse productResponse;
+
     private ExitResponse exitResponse;
 
 }

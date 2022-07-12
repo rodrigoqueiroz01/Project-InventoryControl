@@ -16,11 +16,17 @@ import java.util.UUID;
 public class ProhibitedResponse {
 
     private UUID codProhibited;
+
     private LocalDateTime requestDate;
+
     private LocalDateTime entryDate;
+
     private Double total;
+
     private Double shipping;
+
     private Integer invoiceNumber;
+
     private Double tax;
 
     private List<ConveyorResponse> conveyorResponseList;
