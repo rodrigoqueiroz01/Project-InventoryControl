@@ -25,7 +25,7 @@ public class CityModel implements Serializable {
     private UUID codCity;
 
     @Column(name = "city_name")
-    private String cityName;
+    private String city;
 
     private String uf;
 

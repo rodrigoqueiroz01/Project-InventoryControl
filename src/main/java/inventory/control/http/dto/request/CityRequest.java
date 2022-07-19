@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
 public class CityRequest {
 
     @NotNull(message = "O nome da cidade não foi informado.")
-    private String cityName;
+    private String city;
 
     @NotNull(message = "A UF da cidade não foi informado.")
     private String uf;

@@ -15,7 +15,7 @@ public class CityResponse {
 
     private UUID codCity;
 
-    private String cityName;
+    private String city;
 
     private String uf;
 

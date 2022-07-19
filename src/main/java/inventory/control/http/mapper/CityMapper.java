@@ -16,7 +16,7 @@ public class CityMapper {
     public static CityModel toModel(CityRequest request) {
         return CityModel
                 .builder()
-                .cityName(request.getCityName())
+                .city(request.getCity())
                 .uf(request.getUf())
                 .build();
     }
@@ -25,7 +25,7 @@ public class CityMapper {
         return CityResponse
                 .builder()
                 .codCity(cityModel.getCodCity())
-                .cityName(cityModel.getCityName())
+                .city(cityModel.getCity())
                 .uf(cityModel.getUf())
                 .build();
     }
