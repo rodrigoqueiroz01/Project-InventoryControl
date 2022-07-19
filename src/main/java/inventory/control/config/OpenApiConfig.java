@@ -8,10 +8,4 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @OpenAPIDefinition(info = @Info(title = "Inventory Control API", version = "v.1"))
-@SecurityScheme(
-        name = "Bearer",
-        type = SecuritySchemeType.HTTP,
-        bearerFormat = "JWT",
-        scheme = "bearer"
-)
 public class OpenApiConfig { }
