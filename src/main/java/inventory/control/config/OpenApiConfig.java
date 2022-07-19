@@ -7,5 +7,5 @@ import io.swagger.v3.oas.annotations.security.SecurityScheme;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@OpenAPIDefinition(info = @Info(title = "Inventory Control API", version = "v.1"))
+@OpenAPIDefinition(info = @Info(title = "Inventory Control API", version = "v1"))
 public class OpenApiConfig { }
