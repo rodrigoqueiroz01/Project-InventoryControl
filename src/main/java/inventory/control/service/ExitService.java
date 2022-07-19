@@ -37,7 +37,7 @@ public class ExitService {
     }
 
     public UUID delete(UUID uuid) {
-        ExitModel exit = exitRepository.findById(uuid)
+        var exit = exitRepository.findById(uuid)
                 .orElseThrow(() -> new NoResultException("Saída inválida."));
         exitRepository.delete(exit);
         return uuid;

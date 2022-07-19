@@ -36,7 +36,7 @@ public class ConveyorService {
     }
 
     public UUID delete(UUID uuid) {
-        ConveyorModel conveyor = conveyorRepository.findById(uuid)
+        var conveyor = conveyorRepository.findById(uuid)
                 .orElseThrow(() -> new NoResultException("Transportadora inválida."));
         conveyorRepository.delete(conveyor);
         return uuid;

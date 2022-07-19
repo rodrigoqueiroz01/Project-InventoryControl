@@ -36,7 +36,7 @@ public class ProviderService {
     }
 
     public UUID delete(UUID uuid) {
-        ProviderModel provider = providerRepository.findById(uuid)
+        var provider = providerRepository.findById(uuid)
                 .orElseThrow(() -> new NoResultException("Fornecedor inválido."));
         providerRepository.delete(provider);
         return uuid;

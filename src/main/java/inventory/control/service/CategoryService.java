@@ -36,7 +36,7 @@ public class CategoryService {
     }
 
     public UUID delete(UUID uuid) {
-        CategoryModel category = categoryRepository.findById(uuid)
+        var category = categoryRepository.findById(uuid)
                 .orElseThrow(() -> new NoResultException("Categoria inválida."));
         categoryRepository.delete(category);
         return uuid;

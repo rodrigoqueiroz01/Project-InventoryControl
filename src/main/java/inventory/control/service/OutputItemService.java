@@ -36,7 +36,7 @@ public class OutputItemService {
     }
 
     public UUID delete(UUID uuid) {
-        OutputItemModel outputItem = outputItemRepository.findById(uuid)
+        var outputItem = outputItemRepository.findById(uuid)
                 .orElseThrow(() -> new NoResultException("Item de saída inválido."));
         outputItemRepository.delete(outputItem);
         return uuid;

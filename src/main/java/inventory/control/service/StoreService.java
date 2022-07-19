@@ -36,7 +36,7 @@ public class StoreService {
     }
 
     public UUID delete(UUID id) {
-        StoreModel store = storeRepository.findById(id)
+        var store = storeRepository.findById(id)
                 .orElseThrow(() -> new NoResultException("Loja inválida."));
         storeRepository.delete(store);
         return id;

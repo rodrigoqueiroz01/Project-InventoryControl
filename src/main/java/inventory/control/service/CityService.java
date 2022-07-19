@@ -36,7 +36,7 @@ public class CityService {
     }
 
     public UUID delete(UUID uuid) {
-        CityModel city = cityRepository.findById(uuid)
+        var city = cityRepository.findById(uuid)
                 .orElseThrow(() -> new NoResultException("Cidade inválida."));
         cityRepository.delete(city);
         return uuid;

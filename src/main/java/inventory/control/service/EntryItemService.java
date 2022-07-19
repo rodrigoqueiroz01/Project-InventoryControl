@@ -36,7 +36,7 @@ public class EntryItemService {
     }
 
     public UUID delete(UUID uuid) {
-        EntryItemModel entryItem = entryItemRepository.findById(uuid)
+        var entryItem = entryItemRepository.findById(uuid)
                 .orElseThrow(() -> new NoResultException("Item de entrada inválido."));
         entryItemRepository.delete(entryItem);
         return uuid;

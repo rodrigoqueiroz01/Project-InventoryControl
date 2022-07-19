@@ -36,7 +36,7 @@ public class ProductService {
     }
 
     public UUID delete(UUID uuid) {
-        ProductModel product = productRepository.findById(uuid)
+        var product = productRepository.findById(uuid)
                 .orElseThrow(() -> new NoResultException("Produto inválido."));
         productRepository.delete(product);
         return uuid;

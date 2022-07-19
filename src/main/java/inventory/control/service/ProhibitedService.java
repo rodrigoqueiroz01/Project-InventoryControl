@@ -36,7 +36,7 @@ public class ProhibitedService {
     }
 
     public UUID delete(UUID uuid) {
-        ProhibitedModel prohibited = prohibitedRepository.findById(uuid)
+        var prohibited = prohibitedRepository.findById(uuid)
                 .orElseThrow(() -> new NoResultException("Entrada inválida."));
         prohibitedRepository.delete(prohibited);
         return uuid;
