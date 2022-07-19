@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/conveyor")
+@RequestMapping("/conveyors")
 @AllArgsConstructor
 @Validated
 public class ConveyorController {

@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/provider")
+@RequestMapping("/providers")
 @AllArgsConstructor
 @Validated
 public class ProviderController {

@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/city")
+@RequestMapping("/cities")
 @AllArgsConstructor
 @Validated
 public class CityController {

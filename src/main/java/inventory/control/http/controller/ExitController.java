@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/exit")
+@RequestMapping("/exits")
 @AllArgsConstructor
 @Validated
 public class ExitController {

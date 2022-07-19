@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/entryItem")
+@RequestMapping("/entryItems")
 @AllArgsConstructor
 @Validated
 public class EntryItemController {
