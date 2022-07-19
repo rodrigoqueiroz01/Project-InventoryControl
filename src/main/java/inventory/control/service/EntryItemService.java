@@ -12,7 +12,7 @@ import java.util.UUID;
 @AllArgsConstructor
 public class EntryItemService {
 
-    private EntryItemRepository entryItemRepository;
+    private final EntryItemRepository entryItemRepository;
 
     public EntryItemModel save(EntryItemModel entryItemModel) {
         return entryItemRepository.save(entryItemModel);

@@ -12,7 +12,7 @@ import java.util.UUID;
 @AllArgsConstructor
 public class ConveyorService {
 
-    private ConveyorRepository conveyorRepository;
+    private final ConveyorRepository conveyorRepository;
 
     public ConveyorModel save(ConveyorModel conveyorModel) {
         return conveyorRepository.save(conveyorModel);

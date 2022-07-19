@@ -12,7 +12,7 @@ import java.util.UUID;
 @AllArgsConstructor
 public class StoreService {
 
-    private StoreRepository storeRepository;
+    private final StoreRepository storeRepository;
 
     public StoreModel save(StoreModel storeModel) {
         return storeRepository.save(storeModel);

@@ -18,7 +18,7 @@ import java.util.UUID;
 @Validated
 public class StoreController {
 
-    private StoreService storeService;
+    private final StoreService storeService;
 
     @PostMapping
     public ResponseEntity<StoreResponse> save(@Valid @RequestBody StoreRequest storeRequest) {
