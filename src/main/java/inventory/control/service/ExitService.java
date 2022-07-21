@@ -13,6 +13,8 @@ import java.util.UUID;
 @AllArgsConstructor
 public class ExitService {
 
+    public static final String INVALIDATION_MESSAGE = "Saída inválida.";
+
     private final ExitRepository exitRepository;
 
     public ExitModel save(ExitModel exitModel) {
@@ -21,7 +23,7 @@ public class ExitService {
 
     public ExitModel findById(UUID uuid) {
         return exitRepository.findById(uuid)
-                .orElseThrow(() -> new NoResultException("Saída inválida."));
+                .orElseThrow(() -> new NoResultException(INVALIDATION_MESSAGE));
     }
 
     public List<ExitModel> findAll() {
@@ -30,7 +32,7 @@ public class ExitService {
 
     public ExitModel update(ExitModel exitModel, UUID uuid) {
         exitRepository.findById(uuid)
-                .orElseThrow(() -> new NoResultException("Saída inválida."));
+                .orElseThrow(() -> new NoResultException(INVALIDATION_MESSAGE));
         exitModel.setCodExit(uuid);
         exitRepository.save(exitModel);
         return exitModel;
@@ -38,7 +40,7 @@ public class ExitService {
 
     public UUID delete(UUID uuid) {
         var exit = exitRepository.findById(uuid)
-                .orElseThrow(() -> new NoResultException("Saída inválida."));
+                .orElseThrow(() -> new NoResultException(INVALIDATION_MESSAGE));
         exitRepository.delete(exit);
         return uuid;
     }

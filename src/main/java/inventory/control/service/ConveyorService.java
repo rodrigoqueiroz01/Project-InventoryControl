@@ -12,6 +12,8 @@ import java.util.UUID;
 @AllArgsConstructor
 public class ConveyorService {
 
+    private static final String INVALIDATION_MESSAGE = "Transportadora inválida.";
+
     private final ConveyorRepository conveyorRepository;
 
     public ConveyorModel save(ConveyorModel conveyorModel) {
@@ -20,7 +22,7 @@ public class ConveyorService {
 
     public ConveyorModel findById(UUID uuid) {
         return conveyorRepository.findById(uuid)
-                .orElseThrow(() -> new NoResultException("Transportadora inválida."));
+                .orElseThrow(() -> new NoResultException(INVALIDATION_MESSAGE));
     }
 
     public List<ConveyorModel> findAll() {
@@ -29,7 +31,7 @@ public class ConveyorService {
 
     public ConveyorModel update(ConveyorModel conveyorModel, UUID uuid) {
         conveyorRepository.findById(uuid)
-                .orElseThrow(() -> new NoResultException("Transportadora inválida."));
+                .orElseThrow(() -> new NoResultException(INVALIDATION_MESSAGE));
         conveyorModel.setCodConveyor(uuid);
         conveyorRepository.save(conveyorModel);
         return conveyorModel;
@@ -37,7 +39,7 @@ public class ConveyorService {
 
     public UUID delete(UUID uuid) {
         var conveyor = conveyorRepository.findById(uuid)
-                .orElseThrow(() -> new NoResultException("Transportadora inválida."));
+                .orElseThrow(() -> new NoResultException(INVALIDATION_MESSAGE));
         conveyorRepository.delete(conveyor);
         return uuid;
     }

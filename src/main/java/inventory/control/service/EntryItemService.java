@@ -12,6 +12,8 @@ import java.util.UUID;
 @AllArgsConstructor
 public class EntryItemService {
 
+    private static final String INVALIDATION_MESSAGE = "Item de entrada inválido.";
+
     private final EntryItemRepository entryItemRepository;
 
     public EntryItemModel save(EntryItemModel entryItemModel) {
@@ -20,7 +22,7 @@ public class EntryItemService {
 
     public EntryItemModel findById(UUID uuid) {
         return entryItemRepository.findById(uuid)
-                .orElseThrow(() -> new NoResultException("Item de entrada inválido."));
+                .orElseThrow(() -> new NoResultException(INVALIDATION_MESSAGE));
     }
 
     public List<EntryItemModel> findAll() {
@@ -29,7 +31,7 @@ public class EntryItemService {
 
     public EntryItemModel update(EntryItemModel entryItemModel, UUID uuid) {
         entryItemRepository.findById(uuid)
-                .orElseThrow(() -> new NoResultException("Item de entrada inválido."));
+                .orElseThrow(() -> new NoResultException(INVALIDATION_MESSAGE));
         entryItemModel.setCodEntryItem(uuid);
         entryItemRepository.save(entryItemModel);
         return entryItemModel;
@@ -37,7 +39,7 @@ public class EntryItemService {
 
     public UUID delete(UUID uuid) {
         var entryItem = entryItemRepository.findById(uuid)
-                .orElseThrow(() -> new NoResultException("Item de entrada inválido."));
+                .orElseThrow(() -> new NoResultException(INVALIDATION_MESSAGE));
         entryItemRepository.delete(entryItem);
         return uuid;
     }

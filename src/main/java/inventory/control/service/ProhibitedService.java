@@ -12,6 +12,8 @@ import java.util.UUID;
 @AllArgsConstructor
 public class ProhibitedService {
 
+    public static final String INVALIDATION_MESSAGE = "Entrada inválida.";
+
     private final ProhibitedRepository prohibitedRepository;
 
     public ProhibitedModel save(ProhibitedModel prohibitedModel) {
@@ -20,7 +22,7 @@ public class ProhibitedService {
 
     public ProhibitedModel findById(UUID uuid) {
         return prohibitedRepository.findById(uuid)
-                .orElseThrow(() -> new NoResultException("Entrada inválida."));
+                .orElseThrow(() -> new NoResultException(INVALIDATION_MESSAGE));
     }
 
     public List<ProhibitedModel> findAll() {
@@ -29,7 +31,7 @@ public class ProhibitedService {
 
     public ProhibitedModel update(ProhibitedModel prohibitedModel, UUID uuid) {
         prohibitedRepository.findById(uuid)
-                .orElseThrow(() -> new NoResultException("Entrada inválida."));
+                .orElseThrow(() -> new NoResultException(INVALIDATION_MESSAGE));
         prohibitedModel.setCodProhibited(uuid);
         prohibitedRepository.save(prohibitedModel);
         return prohibitedModel;
@@ -37,7 +39,7 @@ public class ProhibitedService {
 
     public UUID delete(UUID uuid) {
         var prohibited = prohibitedRepository.findById(uuid)
-                .orElseThrow(() -> new NoResultException("Entrada inválida."));
+                .orElseThrow(() -> new NoResultException(INVALIDATION_MESSAGE));
         prohibitedRepository.delete(prohibited);
         return uuid;
     }

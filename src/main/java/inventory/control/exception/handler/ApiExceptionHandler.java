@@ -17,8 +17,7 @@ import java.util.List;
 
 public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 
-    private static final String MSG_ERRO_BEAN_VALIDATION = "Um ou mais campos informados são inválidos. " +
-            "Corrija-os e tente novamente.";
+    private static final String MSG_ERRO_BEAN_VALIDATION = "Um ou mais campos estão inválidos. Faça o preenchimento correto e tente novamente.";
 
     private static final String MSG_ERRO_GENERICO = "Ocorreu um erro inesperado no sistema. " +
             "Tente novamente e, se o problema persistir, entre em contato com o administrador.";
@@ -36,7 +35,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
     private ResponseEntity<Object> handleValidationException(Exception exception, HttpHeaders headers, HttpStatus status, WebRequest request) {
         List<ApiError.Field> fields = getFieldsWithError(exception);
 
-        ApiError apiError = ApiError
+        var apiError = ApiError
                 .builder()
                 .status(status.value())
                 .title(MSG_ERRO_BEAN_VALIDATION)
@@ -54,7 +53,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
     protected ResponseEntity<Object> handleNoResult(NoResultException exception, WebRequest request) {
         var status = HttpStatus.NOT_FOUND;
 
-        ApiError apiError = ApiError
+        var apiError = ApiError
                 .builder()
                 .status(status.value())
                 .title("Recurso não encontrado.")
@@ -62,7 +61,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
                 .detail(exception.getMessage())
                 .build();
 
-        HttpHeaders headers = new HttpHeaders();
+        var headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_PROBLEM_JSON);
 
         return super.handleExceptionInternal(exception, apiError, headers, status, request);
@@ -72,7 +71,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
     protected ResponseEntity<Object> handleCategory(CategoryNotFoundException exception, WebRequest request) {
         var status = HttpStatus.BAD_REQUEST;
 
-        ApiError apiError = ApiError
+        var apiError = ApiError
                 .builder()
                 .status(status.value())
                 .title("Dados inválidos.")
@@ -80,7 +79,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
                 .detail(exception.getMessage())
                 .build();
 
-        HttpHeaders headers = new HttpHeaders();
+        var headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_PROBLEM_JSON);
 
         return super.handleExceptionInternal(exception, apiError, headers, status, request);
@@ -90,7 +89,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
     protected ResponseEntity<Object> handleCity(CityNotFoundException exception, WebRequest request) {
         var status = HttpStatus.BAD_REQUEST;
 
-        ApiError apiError = ApiError
+        var apiError = ApiError
                 .builder()
                 .status(status.value())
                 .title("Dados inválidos.")
@@ -98,7 +97,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
                 .detail(exception.getMessage())
                 .build();
 
-        HttpHeaders headers = new HttpHeaders();
+        var headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_PROBLEM_JSON);
 
         return super.handleExceptionInternal(exception, apiError, headers, status, request);
@@ -108,7 +107,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
     protected ResponseEntity<Object> handleConveyor(ConveyorNotFoundException exception, WebRequest request) {
         var status = HttpStatus.BAD_REQUEST;
 
-        ApiError apiError = ApiError
+        var apiError = ApiError
                 .builder()
                 .status(status.value())
                 .title("Dados inválidos.")
@@ -116,7 +115,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
                 .detail(exception.getMessage())
                 .build();
 
-        HttpHeaders headers = new HttpHeaders();
+        var headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_PROBLEM_JSON);
 
         return super.handleExceptionInternal(exception, apiError, headers, status, request);
@@ -126,7 +125,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
     protected ResponseEntity<Object> handleEntryItem(EntryItemNotFoundException exception, WebRequest request) {
         var status = HttpStatus.BAD_REQUEST;
 
-        ApiError apiError = ApiError
+        var apiError = ApiError
                 .builder()
                 .status(status.value())
                 .title("Dados inválidos.")
@@ -134,7 +133,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
                 .detail(exception.getMessage())
                 .build();
 
-        HttpHeaders headers = new HttpHeaders();
+        var headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_PROBLEM_JSON);
 
         return super.handleExceptionInternal(exception, apiError, headers, status, request);
@@ -144,7 +143,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
     protected ResponseEntity<Object> handleExit(ExitNotFoundException exception, WebRequest request) {
         var status = HttpStatus.BAD_REQUEST;
 
-        ApiError apiError = ApiError
+        var apiError = ApiError
                 .builder()
                 .status(status.value())
                 .title("Dados inválidos.")
@@ -152,7 +151,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
                 .detail(exception.getMessage())
                 .build();
 
-        HttpHeaders headers = new HttpHeaders();
+        var headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_PROBLEM_JSON);
 
         return super.handleExceptionInternal(exception, apiError, headers, status, request);
@@ -162,7 +161,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
     protected ResponseEntity<Object> handleOutputItem(OutputItemNotFoundException exception, WebRequest request) {
         var status = HttpStatus.BAD_REQUEST;
 
-        ApiError apiError = ApiError
+        var apiError = ApiError
                 .builder()
                 .status(status.value())
                 .title("Dados inválidos.")
@@ -170,7 +169,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
                 .detail(exception.getMessage())
                 .build();
 
-        HttpHeaders headers = new HttpHeaders();
+        var headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_PROBLEM_JSON);
 
         return super.handleExceptionInternal(exception, apiError, headers, status, request);
@@ -180,7 +179,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
     protected ResponseEntity<Object> handleProduct(ProductNotFoundException exception, WebRequest request) {
         var status = HttpStatus.BAD_REQUEST;
 
-        ApiError apiError = ApiError
+        var apiError = ApiError
                 .builder()
                 .status(status.value())
                 .title("Dados inválidos.")
@@ -188,7 +187,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
                 .detail(exception.getMessage())
                 .build();
 
-        HttpHeaders headers = new HttpHeaders();
+        var headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_PROBLEM_JSON);
 
         return super.handleExceptionInternal(exception, apiError, headers, status, request);
@@ -198,7 +197,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
     protected ResponseEntity<Object> handleProhibited(ProhibitedNotFoundException exception, WebRequest request) {
         var status = HttpStatus.BAD_REQUEST;
 
-        ApiError apiError = ApiError
+        var apiError = ApiError
                 .builder()
                 .status(status.value())
                 .title("Dados inválidos.")
@@ -206,7 +205,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
                 .detail(exception.getMessage())
                 .build();
 
-        HttpHeaders headers = new HttpHeaders();
+        var headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_PROBLEM_JSON);
 
         return super.handleExceptionInternal(exception, apiError, headers, status, request);
@@ -216,7 +215,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
     protected ResponseEntity<Object> handleProvider(ProviderNotFoundException exception, WebRequest request) {
         var status = HttpStatus.BAD_REQUEST;
 
-        ApiError apiError = ApiError
+        var apiError = ApiError
                 .builder()
                 .status(status.value())
                 .title("Dados inválidos.")
@@ -224,7 +223,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
                 .detail(exception.getMessage())
                 .build();
 
-        HttpHeaders headers = new HttpHeaders();
+        var headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_PROBLEM_JSON);
 
         return super.handleExceptionInternal(exception, apiError, headers, status, request);
@@ -234,7 +233,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
     protected ResponseEntity<Object> handleStore(StoreNotFoundException exception, WebRequest request) {
         var status = HttpStatus.BAD_REQUEST;
 
-        ApiError apiError = ApiError
+        var apiError = ApiError
                 .builder()
                 .status(status.value())
                 .title("Dados inválidos.")
@@ -242,7 +241,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
                 .detail(exception.getMessage())
                 .build();
 
-        HttpHeaders headers = new HttpHeaders();
+        var headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_PROBLEM_JSON);
 
         return super.handleExceptionInternal(exception, apiError, headers, status, request);
@@ -252,13 +251,13 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
     protected ResponseEntity<Object> handleDataIntegrityViolation(DataIntegrityViolationException exception, WebRequest request) {
         var status = HttpStatus.INTERNAL_SERVER_ERROR;
 
-        ApiError apiError = ApiError
+        var apiError = ApiError
                 .builder()
                 .status(status.value())
                 .title("Erro de integridade de dados")
                 .build();
 
-        HttpHeaders headers = new HttpHeaders();
+        var headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_PROBLEM_JSON);
 
         return super.handleExceptionInternal(exception, apiError, headers, status, request);
@@ -268,13 +267,13 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
     public ResponseEntity<Object> handleUncaughtException(Exception exception, WebRequest request) {
         HttpStatus status = HttpStatus.INTERNAL_SERVER_ERROR;
 
-        ApiError apiError = ApiError
+        var apiError = ApiError
                 .builder()
                 .status(status.value())
                 .title(MSG_ERRO_GENERICO)
                 .build();
 
-        HttpHeaders headers = new HttpHeaders();
+        var headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_PROBLEM_JSON);
 
         return super.handleExceptionInternal(exception, apiError, headers, status, request);
@@ -284,13 +283,13 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
     public ResponseEntity<Object> handleRunTimeException(RuntimeException exception, WebRequest request) {
         HttpStatus status = HttpStatus.INTERNAL_SERVER_ERROR;
 
-        ApiError apiError = ApiError
+        var apiError = ApiError
                 .builder()
                 .status(status.value())
                 .title(MSG_ERRO_GENERICO)
                 .build();
 
-        HttpHeaders headers = new HttpHeaders();
+        var headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_PROBLEM_JSON);
 
         return super.handleExceptionInternal(exception, apiError, headers, status, request);
@@ -298,7 +297,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 
     @Override
     protected ResponseEntity<Object> handleExceptionInternal(Exception exception, Object body, HttpHeaders headers, HttpStatus status, WebRequest request) {
-        ApiError apiError = ApiError
+        var apiError = ApiError
                 .builder()
                 .status(status.value())
                 .title(status.getReasonPhrase())

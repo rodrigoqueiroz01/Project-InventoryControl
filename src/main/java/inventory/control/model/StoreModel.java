@@ -26,17 +26,11 @@ public class StoreModel implements Serializable {
     private UUID codStore;
 
     private String name;
-
     private String address;
-
     private Integer number;
-
     private String district;
-
     private String telephone;
-
     private String subscription;
-
     private String cnpj;
 
     @OneToMany(mappedBy = "storeModel")
@@ -46,8 +40,7 @@ public class StoreModel implements Serializable {
     @JoinTable(
             name = "store_city", schema = "public",
             joinColumns = @JoinColumn(name = "cod_store_fk"),
-            inverseJoinColumns = @JoinColumn(name = "cod_city_fk")
-    )
+            inverseJoinColumns = @JoinColumn(name = "cod_city_fk"))
     private List<CityModel> cityModels;
 
 }

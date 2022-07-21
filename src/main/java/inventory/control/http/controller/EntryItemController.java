@@ -22,8 +22,7 @@ public class EntryItemController {
 
     @PostMapping
     public ResponseEntity<EntryItemResponse> save(@Valid @RequestBody EntryItemRequest entryItemRequest) {
-        return ResponseEntity
-                .ok()
+        return ResponseEntity.ok()
                 .body(EntryItemMapper.toResponse(entryItemService.save(EntryItemMapper.toModel(entryItemRequest))));
     }
 

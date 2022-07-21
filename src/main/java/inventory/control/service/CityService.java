@@ -12,6 +12,8 @@ import java.util.UUID;
 @AllArgsConstructor
 public class CityService {
 
+    private static final String INVALIDATION_MESSAGE = "Cidade inválida.";
+
     private final CityRepository cityRepository;
 
     public CityModel save(CityModel cityModel) {
@@ -20,7 +22,7 @@ public class CityService {
 
     public CityModel findById(UUID uuid) {
         return cityRepository.findById(uuid)
-                .orElseThrow(() -> new NoResultException("Cidade inválida."));
+                .orElseThrow(() -> new NoResultException(INVALIDATION_MESSAGE));
     }
 
     public List<CityModel> findAll() {
@@ -29,7 +31,7 @@ public class CityService {
 
     public CityModel update(CityModel cityModel, UUID uuid) {
         cityRepository.findById(uuid)
-                .orElseThrow(() -> new NoResultException("Cidade inválida."));
+                .orElseThrow(() -> new NoResultException(INVALIDATION_MESSAGE));
         cityModel.setCodCity(uuid);
         cityRepository.save(cityModel);
         return cityModel;
@@ -37,7 +39,7 @@ public class CityService {
 
     public UUID delete(UUID uuid) {
         var city = cityRepository.findById(uuid)
-                .orElseThrow(() -> new NoResultException("Cidade inválida."));
+                .orElseThrow(() -> new NoResultException(INVALIDATION_MESSAGE));
         cityRepository.delete(city);
         return uuid;
     }

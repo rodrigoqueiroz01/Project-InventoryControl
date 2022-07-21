@@ -12,6 +12,8 @@ import java.util.UUID;
 @AllArgsConstructor
 public class OutputItemService {
 
+    public static final String INVALIDATION_MESSAGE = "Item de saída inválido.";
+
     private final OutputItemRepository outputItemRepository;
 
     public OutputItemModel save(OutputItemModel outputItemModel) {
@@ -20,7 +22,7 @@ public class OutputItemService {
 
     public OutputItemModel findById(UUID uuid) {
         return outputItemRepository.findById(uuid)
-                .orElseThrow(() -> new NoResultException("Item de saída inválido."));
+                .orElseThrow(() -> new NoResultException(INVALIDATION_MESSAGE));
     }
 
     public List<OutputItemModel> findAll() {
@@ -29,7 +31,7 @@ public class OutputItemService {
 
     public OutputItemModel update(OutputItemModel outputItemModel, UUID uuid) {
         outputItemRepository.findById(uuid)
-                .orElseThrow(() -> new NoResultException("Item de saída inválido."));
+                .orElseThrow(() -> new NoResultException(INVALIDATION_MESSAGE));
         outputItemModel.setCodOutputItem(uuid);
         outputItemRepository.save(outputItemModel);
         return outputItemModel;
@@ -37,7 +39,7 @@ public class OutputItemService {
 
     public UUID delete(UUID uuid) {
         var outputItem = outputItemRepository.findById(uuid)
-                .orElseThrow(() -> new NoResultException("Item de saída inválido."));
+                .orElseThrow(() -> new NoResultException(INVALIDATION_MESSAGE));
         outputItemRepository.delete(outputItem);
         return uuid;
     }

@@ -12,6 +12,8 @@ import java.util.UUID;
 @AllArgsConstructor
 public class ProductService {
 
+    public static final String INVALIDATION_MESSAGE = "Produto inválido.";
+
     private final ProductRepository productRepository;
 
     public ProductModel save(ProductModel productModel) {
@@ -20,7 +22,7 @@ public class ProductService {
 
     public ProductModel findById(UUID uuid) {
         return productRepository.findById(uuid)
-                .orElseThrow(() -> new NoResultException("Produto inválido."));
+                .orElseThrow(() -> new NoResultException(INVALIDATION_MESSAGE));
     }
 
     public List<ProductModel> findAll() {
@@ -29,7 +31,7 @@ public class ProductService {
 
     public ProductModel update(ProductModel productModel, UUID uuid) {
         productRepository.findById(uuid)
-                .orElseThrow(() -> new NoResultException("Produto inválido."));
+                .orElseThrow(() -> new NoResultException(INVALIDATION_MESSAGE));
         productModel.setCodProduct(uuid);
         productRepository.save(productModel);
         return productModel;
@@ -37,7 +39,7 @@ public class ProductService {
 
     public UUID delete(UUID uuid) {
         var product = productRepository.findById(uuid)
-                .orElseThrow(() -> new NoResultException("Produto inválido."));
+                .orElseThrow(() -> new NoResultException(INVALIDATION_MESSAGE));
         productRepository.delete(product);
         return uuid;
     }

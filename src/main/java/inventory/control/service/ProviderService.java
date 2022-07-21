@@ -12,6 +12,8 @@ import java.util.UUID;
 @AllArgsConstructor
 public class ProviderService {
 
+    public static final String INVALIDATION_MESSAGE = "Fornecedor inválido.";
+
     private final ProviderRepository providerRepository;
 
     public ProviderModel save(ProviderModel providerModel) {
@@ -20,7 +22,7 @@ public class ProviderService {
 
     public ProviderModel findById(UUID uuid) {
         return providerRepository.findById(uuid)
-                .orElseThrow(() -> new NoResultException("Fornecedor inválido."));
+                .orElseThrow(() -> new NoResultException(INVALIDATION_MESSAGE));
     }
 
     public List<ProviderModel> findAll() {
@@ -29,7 +31,7 @@ public class ProviderService {
 
     public ProviderModel update(ProviderModel providerModel, UUID uuid) {
         providerRepository.findById(uuid)
-                .orElseThrow(() -> new NoResultException("Fornecedor inválido."));
+                .orElseThrow(() -> new NoResultException(INVALIDATION_MESSAGE));
         providerModel.setCodProvider(uuid);
         providerRepository.save(providerModel);
         return providerModel;
@@ -37,7 +39,7 @@ public class ProviderService {
 
     public UUID delete(UUID uuid) {
         var provider = providerRepository.findById(uuid)
-                .orElseThrow(() -> new NoResultException("Fornecedor inválido."));
+                .orElseThrow(() -> new NoResultException(INVALIDATION_MESSAGE));
         providerRepository.delete(provider);
         return uuid;
     }
